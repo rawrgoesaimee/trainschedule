@@ -12,4 +12,29 @@ const firebaseConfig = {
 
   let database = firebase.database();
 
+  let name = ""
+  let destination = ""
+  let trainTimes = ""
+  let reccurence = ""
+
+  $("#submit").on("click", function(event){
+    event.preventDefault();
+    name = $("#train-name").val().trim()
+    destination = $("#destination").val().trim()
+    trainTimes = ($("#first-train").val().trim(), "hh:mm").subtract(1, "years").format("X")
+    reccurence = $("#frequency").val().trim()
+
+  let name = {
+      name: name,
+      destination: destination,
+      trainTimes: trainTimes,
+      frequency: reccurence
+  };
+
+  $("#train-name").val("")
+    $("#destination").val("")
+    $("#first-train").val("")
+    $("#frequency").val("")
+
+  })
   
