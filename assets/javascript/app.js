@@ -28,13 +28,22 @@ const firebaseConfig = {
       name: name,
       destination: destination,
       trainTimes: trainTimes,
-      frequency: reccurence
+      reccurence: reccurence
   };
 
-  $("#train-name").val("")
+    $("#train-name").val("")
     $("#destination").val("")
     $("#first-train").val("")
     $("#frequency").val("")
 
+  });
+
+  database.ref().on("child_added", function(snapshot){
+
+    $("#train-name").text(snapshot.val().name)
+    $("#destination").text(snapshot.val().destination)
+    $("#first-train").text(snapshot.val().trainTimes)
+    $("#frequency").text(snapshot.val().recurrence)
+    
   })
   
